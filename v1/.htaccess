@@ -1,5 +1,6 @@
 RewriteEngine On
 # The below 3 lines are used to remove params and just show them as a url, has regex to escape characters
+RewriteRule ^province/([A-Za-z0-9:.-]+)$ province.php?id=$1 [L]
 RewriteRule ^county/([a-zA-Z0-9\s_-]+)$ county.php?id=$1 [L]
 RewriteRule ^subcounty/([a-zA-Z0-9_-]+)$ subcounty.php?id=$1 [L]
 RewriteRule ^constituency/([a-zA-Z0-9\s._-]+)$ product.php?id=$1 [L]
