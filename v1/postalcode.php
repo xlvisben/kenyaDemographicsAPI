@@ -2,7 +2,7 @@
 /*
 *
 ---------------------------------------------------------------
-Function: This file is used to handle logic when getting all postalcodes in the database
+Function: This file is used to handle logic when getting a specific in the database
 ---------------------------------------------------------------
 *
 */
@@ -18,6 +18,7 @@ require_once __DIR__.'/core/composer/vendor/autoload.php';
 
 use app\Postalcode;
 
+
 if ($_SERVER['REQUEST_METHOD'] != 'GET') {
 
   $dataArray = array(
@@ -29,20 +30,31 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
 
 } else {
 
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+
+  $dataArray = array(
+    'status_code' => 400,
+    'status_message_short' => 'Bad request',
+    'status_message_description' => 'Requested resource is missing a required parameter',
+    'data' => NULL,
+  );
+
+}else {
+
   try {
 
     $postalcode = new Postalcode();
 
-    $getPostalcodes = $postalcode->getPostalcodes();
+    $getPostalcode = $postalcode->getPostalcode($_GET['id']);
 
-    switch ($getPostalcodes['response']) {
+    switch ($getPostalcode['response']) {
       case '200':
 
         $dataArray = array(
           'status_code' => 200,
           'status_message_short' => 'Success',
-          'status_message_description' => 'Success in fetching all counties',
-          'data' => $getPostalcodes['data'],
+          'status_message_description' => 'Success in fetching a specific former provinces',
+          'data' => $getPostalcode['data'],
         );
 
         break;
@@ -53,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
             'status_code' => 204,
             'status_message_short' => 'No content',
             'status_message_description' => 'No data present for resource',
-            'data' => $getPostalcodes['data'],
+            'data' => $getPostalcode['data'],
           );
 
           break;
@@ -63,8 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
         $dataArray = array(
           'status_code' => 500,
           'status_message_short' => 'Internal error',
-          'status_message_description' => $getPostalcodes['message'],
-          'data' => $getPostalcodes['data'],
+          'status_message_description' => $getPostalcode['message'],
+          'data' => $getPostalcode['data'],
         );
 
         break;
@@ -80,6 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
     );
 
   }
+
+}
 }
 
 

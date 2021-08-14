@@ -8,7 +8,11 @@
   <body>
 
     <main>
-      With love from Elvis
+
+      <div class="">
+        Version 1 developed by Elvis Ben. <br>
+        Credits to <a href="#">njoguamos</a> and <a href="#">Kenyan Wikipedia entries</a>
+      </div>
     </main>
 
 
