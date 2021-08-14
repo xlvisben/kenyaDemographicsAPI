@@ -7,7 +7,7 @@ namespace app;
 /*
 *
 ---------------------------------------------------------------
-This file handles the PROVINCE actions:
+This file handles the COUNTY actions:
 -> Get all counties ->getCounties()
 -> Get a specific county ->getCounty(string $ID)
 ---------------------------------------------------------------
