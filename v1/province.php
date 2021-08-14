@@ -2,7 +2,7 @@
 /*
 *
 ---------------------------------------------------------------
-Function: This file is used to handle logic when getting all former provinces in the database
+Function: This file is used to handle logic when getting a specific in the database
 ---------------------------------------------------------------
 *
 */

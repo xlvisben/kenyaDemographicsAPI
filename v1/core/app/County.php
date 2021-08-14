@@ -8,14 +8,14 @@ namespace app;
 *
 ---------------------------------------------------------------
 This file handles the PROVINCE actions:
--> Get all provinces ->getProvinces()
--> Get a specific province ->getProvince(string $ID)
+-> Get all counties ->getCounties()
+-> Get a specific county ->getCounty(string $ID)
 ---------------------------------------------------------------
 *
 */
 
 
-class Province extends DatabaseActions
+class County extends DatabaseActions
 {
 
   private \mysqli $dbConnection;
@@ -43,23 +43,23 @@ class Province extends DatabaseActions
 
   }
 
-  public function getProvinces()
+  public function getCounties()
   {
 
-    $getProvincesSQL = "SELECT province_id, province_name FROM `former_provinces`";
+    $getCountiesSQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id";
 
-    return $this->selectSQLStatement($getProvincesSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getCountiesSQL, $this->dbConnection);
 
   }
 
-  public function getProvince(string $ID)
+  public function getCounty(string $ID)
   {
 
     $ID = mysqli_real_escape_string($this->dbConnection, $ID);
 
-    $getProvinceSQL = "SELECT province_id, province_name FROM `former_provinces` WHERE province_id = '$ID'";
+    $getCountySQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE county_code = '$ID'";
 
-    return $this->selectSQLStatement($getProvinceSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getCountySQL, $this->dbConnection);
 
   }
 
