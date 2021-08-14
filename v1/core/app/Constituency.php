@@ -15,7 +15,7 @@ This file handles the COUNTY actions:
 */
 
 
-class County extends DatabaseActions
+class Constituency extends DatabaseActions
 {
 
   private \mysqli $dbConnection;
@@ -43,23 +43,23 @@ class County extends DatabaseActions
 
   }
 
-  public function getCounties()
+  public function getConstituencies()
   {
 
-    $getCountiesSQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id";
+    $getCountiesSQL = "SELECT constituency_code, constituency_name, constituencies.county_code, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `constituencies` INNER JOIN `counties` ON constituencies.county_code = counties.county_code INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id";
 
     return $this->selectSQLStatement($getCountiesSQL, $this->dbConnection);
 
   }
 
-  public function getCounty(string $ID)
+  public function getConstituency(string $ID)
   {
 
     $ID = mysqli_real_escape_string($this->dbConnection, $ID);
 
-    $getCountySQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE county_code = '$ID'";
+    $getConstituencySQL = "SELECT constituency_code, constituency_name, constituencies.county_code, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `constituencies` INNER JOIN `counties` ON constituencies.county_code = counties.county_code INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE constituency_code = '$ID'";
 
-    return $this->selectSQLStatement($getCountySQL, $this->dbConnection);
+    return $this->selectSQLStatement($getConstituencySQL, $this->dbConnection);
 
   }
 

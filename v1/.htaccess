@@ -3,7 +3,7 @@ RewriteEngine On
 RewriteRule ^province/([A-Za-z0-9:.-]+)$ province.php?id=$1 [L]
 RewriteRule ^county/([a-zA-Z0-9\s_-]+)$ county.php?id=$1 [L]
 RewriteRule ^subcounty/([a-zA-Z0-9_-]+)$ subcounty.php?id=$1 [L]
-RewriteRule ^constituency/([a-zA-Z0-9\s._-]+)$ product.php?id=$1 [L]
+RewriteRule ^constituency/([a-zA-Z0-9\s._-]+)$ constituency.php?id=$1 [L]
 RewriteRule ^ward/([a-zA-Z0-9\s._-]+)$ ward.php?id=$1 [L]
 # The below is used to remove the extensions in files i.e .html & .php
 RewriteCond %{REQUEST_FILENAME} !-d
