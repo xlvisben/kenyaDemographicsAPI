@@ -46,7 +46,7 @@ class Postalcode extends DatabaseActions
   public function getPostalcodes()
   {
 
-    $getPostalcodesSQL = "SELECT code as postal_code, office FROM `postal_codes`";
+    $getPostalcodesSQL = "SELECT postal_code, office, county_name FROM `postal_codes` INNER JOIN `counties` ON counties.county_code = postal_codes.county_code";
 
     return $this->selectSQLStatement($getPostalcodesSQL, $this->dbConnection);
 
@@ -57,7 +57,7 @@ class Postalcode extends DatabaseActions
 
     $ID = mysqli_real_escape_string($this->dbConnection, $ID);
 
-    $getPostalcodeSQL = "SELECT code as postal_code, office FROM `postal_codes` WHERE code = '$ID'";
+    $getPostalcodeSQL = "SELECT postal_code, office FROM `postal_codes` INNER JOIN `counties` ON counties.county_code = postal_codes.county_code WHERE postal_code = '$ID'";
 
     return $this->selectSQLStatement($getPostalcodeSQL, $this->dbConnection);
 

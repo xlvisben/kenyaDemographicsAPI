@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
         $dataArray = array(
           'status_code' => 200,
           'status_message_short' => 'Success',
-          'status_message_description' => 'Success in fetching all counties',
+          'status_message_description' => 'Success in fetching all postal codes',
           'data' => $getPostalcodes['data'],
         );
 
