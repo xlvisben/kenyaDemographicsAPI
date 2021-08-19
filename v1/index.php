@@ -12,204 +12,83 @@
     html, body{
       scroll-behavior: smooth;
     }
+    body {
+      position: relative;
+    }
+    ul.nav-pills {
+      top: 20px;
+      position: fixed;
+    }
+    div.col-8 div {
+      height: 500px;
+    }
   </style>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target="#navigationBar" data-offset="20">
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top shadow">
-      <ul class="navbar-nav">
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-3 col-4 bg-dark" id="navigationBar">
+      <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="#background">Background</a>
+          <a class="nav-link active" href="#background">Background / Introduction</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#responses">Responses</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            API Endpoints
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#constituencies">Constituencies</a>
-            <a class="dropdown-item" href="#constituency">Constituency</a>
-            <a class="dropdown-item" href="#counties">Counties</a>
-            <a class="dropdown-item" href="#county">County</a>
-            <a class="dropdown-item" href="#subcounties">Sub-counties</a>
-            <a class="dropdown-item" href="#subcounty">Sub-county</a>
-            <a class="dropdown-item" href="#postalcode">Postal Code</a>
-            <a class="dropdown-item" href="#postalcodes">Postal Codes</a>
-            <a class="dropdown-item" href="#province">Province</a>
-            <a class="dropdown-item" href="#provinces">Provinces</a>
-            <a class="dropdown-item" href="#ward">Ward</a>
-            <a class="dropdown-item" href="#wards">Wards</a>
-          </div>
-        </li>
-
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Reach out</a>
+          <a class="nav-link" href="#section3">Section 3</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section 4</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#section41">Link 1</a>
+            <a class="dropdown-item" href="#section42">Link 2</a>
+          </div>
         </li>
       </ul>
     </nav>
+    <div class="col-sm-9 col-8">
+      <div id="background">
+        <h1>Background</h1>
+        <p>
+          Sometime back, I was required to develop an address system of sorts for a checkout processs. The locations were to be Kenyan, immediately I was of the idea I will google and get some API. Well no.
+        </p>
+        <p>
+          On the bright side the data was readily there and I got to use it but it bothered me that such wasn't readily available and one has to scour as many webpages as there are demographic units. <br>
+        </p>
+        <p>
+          That led me to this side project, credits to <a href="https://github.com/njoguamos/kenya-demographics-units" target="_blank">this github repository</a>, <a href="https://geo.mycyber.org/kenya" target="_blank">this website</a> and Wikipedia entries of Kenya's demographic units for all the data
+        </p>
 
-    <div id="background" class="container-fluid" style="padding-top:70px;">
-      <h1> <u>Background</u> </h1>
-      <p>
-        A while back I was faced with a situation where I had to get data concerning places/locations in Kenya to implement an address of sorts for the checkout process of an e-commerce site. I immediately thought, yeap there is definitely an api for that, well I didn't get it.
-      </p>
-      <p>
-        Well on the bright side, the data was there credits to <a href="https://github.com/njoguamos/kenya-demographics-units" target="_blank">this repo</a>, <a href="https://geo.mycyber.org/kenya" target="_blank">this site</a> and the Kenyan Wikipedia entry.
-      </p>
-      <p>
-        So all I had to do was make it fit my project but then again it bugged my mind that this wasn't as readily available in form of an API which anyone can easily hook into their project. It was only available in as many webpages as there are demographic units.
-      </p>
-      <p>
-        This took me about a week to develop it and a another for testing before launching the first version.
-      </p>
+        <p>
+          This is the documentation for the 'kenyaplacesapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties.
+        </p>
+      </div>
+      <div id="responses">
+        <h1>Responses</h1>
+        <p>
+          The basic responses to the requests is:
+          <code>
+            
+          </code>
+        </p>
+      </div>
+      <div id="section3" class="bg-secondary">
+        <h1>Section 3</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div id="section41" class="bg-danger">
+        <h1>Section 4-1</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
+      <div id="section42" class="bg-info">
+        <h1>Section 4-2</h1>
+        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+      </div>
     </div>
-
-    <div id="responses" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h1> <u>Responses</u> </h1>
-      <p>
-        All responses are in JSON format with the following structure:<br>
-        <code>
-          {<br>
-            "status_code": 000,<br>
-            "status_message_short": "XXXXXXX",<br>
-            "status_message_description": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",<br>
-            "data": []<br>
-          }
-        </code>
-
-      </p>
-
-    </div>
-
-    <div id="endpoints" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h1> <u>API endpoints</u> </h1>
-      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-      <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-    </div>
-
-    <div id="constituencies" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Constituencies</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="constituency" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Constituency</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="counties" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Counties</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="county" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>County</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="subcounties" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Sub-counties</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="subcounty" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Subcounty</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="postalcode" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Postal code</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="postalcodes" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Postal codes</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="subcounty" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Province</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="subcounty" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Provinces</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="ward" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Ward</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="wards" class="container-fluid" style="padding-top:70px;padding-bottom:70px">
-      <h2>Wards</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-
-    <div id="contact" class="col-sm-8 m-auto" style="padding-top:70px;padding-bottom:70px">
-
-      <form class="container" action="index.html" method="post">
-        Got something to add/say? type write in below!!
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Your email e.g example@example.com" name="email">
-        </div>
-
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" class="form-control" id="name" placeholder="Your name eg. John Doe" name="name">
-        </div>
-
-        <div class="form-group">
-          <label for="message">Your Message:</label>
-          <textarea name="name" class="form-control" id="message" placeholder="Your message"></textarea>
-        </div>
-
-        <input type="submit" class="btn btn-primary form-control" name="submit" value="SEND MESSAGE">
-
-        <div class="container text-center">
-          <p>
-            You can also get me in the following:
-          </p>
-
-          <div class="d-flex justify-content-around">
-            <a href="https://github.com/Xlvis" target="_blank">Github</a>
-            <a href="https://elvisben.me.ke" target="_blank">My Website</a>
-            <a href="https://fiverr.com/xlvisben" target="_blank">Fiverr</a>
-          </div>
-
-        </div>
-
-
-      </form>
-    </div>
+  </div>
+</div>
 
 </body>
 
