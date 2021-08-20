@@ -20,7 +20,7 @@
       position: fixed;
     }
     div.col-8 div {
-      height: 500px;
+      height: auto;
     }
   </style>
 </head>
@@ -30,21 +30,35 @@
   <div class="row">
     <nav class="col-sm-3 col-4 bg-dark" id="navigationBar">
       <ul class="nav nav-pills flex-column">
+
         <li class="nav-item">
           <a class="nav-link active" href="#background">Background / Introduction</a>
         </li>
+
         <li class="nav-item">
           <a class="nav-link" href="#responses">Responses</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#section3">Section 3</a>
-        </li>
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Section 4</a>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Endpoints</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#section41">Link 1</a>
-            <a class="dropdown-item" href="#section42">Link 2</a>
+            <a class="dropdown-item" href="#constituencies">Constituencies</a>
+            <a class="dropdown-item" href="#constituency">Constituency</a>
+            <a class="dropdown-item" href="#counties">Counties</a>
+            <a class="dropdown-item" href="#county">County</a>
+            <a class="dropdown-item" href="#subcounties">Sub-counties</a>
+            <a class="dropdown-item" href="#subcounty">Sub-county</a>
+            <a class="dropdown-item" href="#postalcode">Postal Code</a>
+            <a class="dropdown-item" href="#postalcodes">Postal Codes</a>
+            <a class="dropdown-item" href="#province">Province</a>
+            <a class="dropdown-item" href="#provinces">Provinces</a>
+            <a class="dropdown-item" href="#ward">Ward</a>
+            <a class="dropdown-item" href="#wards">Wards</a>
           </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Reach Out/Contact</a>
         </li>
       </ul>
     </nav>
@@ -65,27 +79,244 @@
           This is the documentation for the 'kenyaplacesapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties.
         </p>
       </div>
+
       <div id="responses">
-        <h1>Responses</h1>
+        <h2>Responses</h2>
         <p>
-          The basic responses to the requests is:
+          All responses are in <code>JSON</code> and are in the following structure:
+          <p>
+            <code>
+              status_code: 000,<br>
+              status_message_short: 'xxxxxxxxx',<br>
+              status_message_description: 'xxxxxxxxxxxxxxxxxxxxx',<br>
+              data: []
+            </code>
+          </p>
+
+          <p>
+            The status code field in the JSON response bear the same meaning as normal HTTP status codes <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank">read more here</a>
+          </p>
+
+          <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th>JSON Field</th>
+                <th>Possible Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>status_code</code>
+                </td>
+                <td>
+                  <code>200</code><br>
+                  <code>204</code><br>
+                  <code>400</code><br>
+                  <code>405</code><br>
+                  <code>500</code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>status_message_short</code>
+                </td>
+                <td>
+                  Success<br>
+                  No Content<br>
+                  Bad request<br>
+                  Method not allowed<br>
+                  Internal Server Error
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>status_message_description</code>
+                </td>
+                <td>
+                  <code>
+                    **This field carries a varied response based on the request**
+                  </code>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>data</code>
+                </td>
+                <td>
+                  <code>
+                    [{},{}]
+                  </code><br>
+                  <code>
+                    []
+                  </code><br>
+                  <code>null</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </p>
+      </div>
+
+      <div id="constituencies">
+        <h2>Constituencies</h2>
+        <p>
+          <code>URL: /v1/constituencies</code>
+        </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches all constituencies present.
+        </p>
+        <p>
+          Apart from the constituency code and constituency name, additional data provided are:<br>
+          <code>County Code</code><br>
+          <code>County Name</code><br>
+          <code>County's Capital City</code><br>
+          <code>Former Province Name</code><br>
+          <code>Former Province Code</code>
+        </p>
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
           <code>
-            
+            {<br>
+              "constituency_code": "0",<br>
+              "constituency_name": "Xyz",<br>
+              "county_code": "0",<br>
+              "county_name": "Abc",<br>
+              "capital_city": "Abc",<br>
+              "former_province_name": "Def",<br>
+              "former_province_code": "0.0"<br>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for a specific constituency, get to read below</p>
+      </div>
+
+      <div id="constituency">
+        <h2>Constituency</h2>
+        <p>
+          <code>URL: /v1/constituency/{constituency_code}</code>
+        </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+
+        <p>
+          This endpoint fetches data from a specific constituency. An ID parameter is required otherwise it responds with a "Bad Request". The id supplied is obtained from constituency code which is a number
+        </p>
+        <p>
+          Apart from the constituency code and constituency name, additional data provided are:<br>
+          <code>County Code</code><br>
+          <code>County Name</code><br>
+          <code>County's Capital City</code><br>
+          <code>Former Province Name</code><br>
+          <code>Former Province Code</code>
+        </p>
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+            {<br>
+              "constituency_code": "0",<br>
+              "constituency_name": "Xyz",<br>
+              "county_code": "0",<br>
+              "county_name": "Abc",<br>
+              "capital_city": "Abc",<br>
+              "former_province_name": "Def",<br>
+              "former_province_code": "0.0"<br>
+            }
           </code>
         </p>
       </div>
-      <div id="section3" class="bg-secondary">
-        <h1>Section 3</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+
+      <div id="counties">
+        <h2>Counties</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
-      <div id="section41" class="bg-danger">
-        <h1>Section 4-1</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+
+      <div id="county">
+        <h2>County</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
-      <div id="section42" class="bg-info">
-        <h1>Section 4-2</h1>
-        <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+
+      <div id="subcounties">
+        <h2>Sub Counties</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
+
+      <div id="subcounty">
+        <h2>Sub County</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div id="postalcode">
+        <h2>Postal Code</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div id="postalcodes">
+        <h2>Postal Codes</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div id="province">
+        <h2>Province</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div id="ward">
+        <h2>Ward</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div id="wards">
+        <h2>Wards</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div id="contact">
+
+        <h2>Reach Out</h2>
+        <form class="col-sm-7 m-auto">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          </div>
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+
     </div>
   </div>
 </div>
