@@ -30,7 +30,9 @@
   <div class="row">
     <nav class="col-sm-3 col-4 bg-dark" id="navigationBar">
       <ul class="nav nav-pills flex-column">
-
+        <div class="text-white">
+          Kenya Places API  {{BETA}}
+        </div>
         <li class="nav-item">
           <a class="nav-link active" href="#background">Background / Introduction</a>
         </li>
@@ -40,8 +42,9 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Endpoints</a>
-          <div class="dropdown-menu">
+          <a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
+
+          <div id="endpointsdropdown" class="collapse">
             <a class="dropdown-item" href="#constituencies">Constituencies</a>
             <a class="dropdown-item" href="#constituency">Constituency</a>
             <a class="dropdown-item" href="#counties">Counties</a>
@@ -76,7 +79,7 @@
         </p>
 
         <p>
-          This is the documentation for the 'kenyaplacesapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties.
+          This is the documentation for the 'kenyaplacesapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties and it also includes former provinces where the demographic unit is located.
         </p>
       </div>
 
@@ -94,7 +97,9 @@
           </p>
 
           <p>
-            The status code field in the JSON response bear the same meaning as normal HTTP status codes <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank">read more here</a>
+            <b>
+              The <code>status code</code> key in the JSON response bear the same meaning as normal HTTP status codes <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank">read more here</a>
+            </b>
           </p>
 
           <table class="table table-dark table-striped">
@@ -135,7 +140,10 @@
                 </td>
                 <td>
                   <code>
-                    **This field carries a varied response based on the request**
+                    <b>
+                      *This key carries a variety of values based on the request made to the API
+                    </b>
+
                   </code>
                 </td>
               </tr>
@@ -197,16 +205,15 @@
       </div>
 
       <div id="constituency">
-        <h2>Constituency</h2>
+        <h2>Constituencies</h2>
         <p>
-          <code>URL: /v1/constituency/{constituency_code}</code>
+          <code>URL: /v1/constituency/{id}</code>
         </p>
         <p>
           Supported Methods: <code>GET</code>
         </p>
-
         <p>
-          This endpoint fetches data from a specific constituency. An ID parameter is required otherwise it responds with a "Bad Request". The id supplied is obtained from constituency code which is a number
+          This endpoint fetches a specific constituency. This requires an ID to be passed in the URL in the <code>{id}</code> section. The ID to be passed is the constituency code which is unique to all constituencies.
         </p>
         <p>
           Apart from the constituency code and constituency name, additional data provided are:<br>
@@ -217,7 +224,7 @@
           <code>Former Province Code</code>
         </p>
         <p>
-          The format for a single entry of data is an object with a structure as below:<br>
+          The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
           <code>
             {<br>
               "constituency_code": "0",<br>
@@ -230,27 +237,108 @@
             }
           </code>
         </p>
+
+        <p>To query the API for a specific county, get to read below</p>
       </div>
 
       <div id="counties">
         <h2>Counties</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/counties</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches all counties present.
+        </p>
+        <p>
+          Apart from the county code and county name, additional data provided are:<br>
+          <code>County's Capital City</code><br>
+          <code>Former Province Name</code><br>
+          <code>Former Province Code</code>
+        </p>
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+            {<br>
+              "county_code": "0",<br>
+              "county_name": "Xyz",<br>
+              "capital_city": "Abc",<br>
+              "former_province_name": "Def",<br>
+              "former_province_code": "0.0"<br>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for a specific county, get to read below</p>
       </div>
 
       <div id="county">
         <h2>County</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/county/{id}</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches a specific county. This requires an ID to be passed in the URL in the <code>{id}</code> section. The ID to be passed is the county code which is unique to all constituencies.
+        </p>
+        <p>
+          Apart from the county code and county name, additional data provided are:<br>
+          <code>Former Province Name</code><br>
+          <code>Former Province Code</code>
+        </p>
+        <p>
+          The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
+          <code>
+            {<br>
+              "county_code": "0",<br>
+              "county_name": "Abc",<br>
+              "capital_city": "Abc",<br>
+              "former_province_name": "Def",<br>
+              "former_province_code": "0.0"<br>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for subcounties, get to read below</p>
       </div>
 
       <div id="subcounties">
         <h2>Sub Counties</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/subcounties</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches all subcounties present.
+        </p>
+        <p>
+          Apart from the subcounty code and subcounty name, additional data provided are:<br>
+          <code>County's Name</code><br>
+          <code>County's Capital City</code><br>
+          <code>Former Province Name</code><br>
+          <code>Former Province Code</code>
+        </p>
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+            {<br>
+              "subcounty_code": "0",<br>
+              "subcounty_name": "Xyz",<br>
+              "county_name": "Xyz",<br>
+              "capital_city": "Abc",<br>
+              "former_province_name": "Def",<br>
+              "former_province_code": "0.0"<br>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for a specific subcounty, get to read below</p>
       </div>
 
       <div id="subcounty">
@@ -295,25 +383,38 @@
         </p>
       </div>
 
-      <div id="contact">
+      <div id="contact" class="pb-5" >
 
         <h2>Reach Out</h2>
+        <p>Got some awesome suggestions or a comment? Fill in below to get to me with your message!!</p>
         <form class="col-sm-7 m-auto">
+
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Fill in your name" name="fullname">
+          </div>
+
           <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
           </div>
+
           <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+            <label for="message">Message:</label>
+            <textarea name="message" id="message" class="form-control" placeholder="Your Message"></textarea>
           </div>
-          <div class="form-group form-check">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="remember"> Remember me
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+
+          <button type="submit" class="btn btn-primary form-control">Submit</button>
         </form>
+
+        <div class="m-auto text-center">
+          <p>You can also get me through the below avenues</p>
+          <div class="col-sm-9 d-flex m-auto justify-content-around">
+            <a href="https://fiverr.com/xlvisben" target="_blank">Fiverr</a>
+            <a href="https://github.com/Xlvis" target="_blank">Github</a>
+            <a href="https://elvisben.me.ke" target="_blank">Personal Website</a>
+          </div>
+        </div>
 
       </div>
 

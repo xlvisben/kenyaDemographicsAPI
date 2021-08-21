@@ -57,7 +57,7 @@ class County extends DatabaseActions
 
     $ID = mysqli_real_escape_string($this->dbConnection, $ID);
 
-    $getCountySQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE county_code = '$ID'";
+    $getCountySQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE county_code = '$ID'";
 
     return $this->selectSQLStatement($getCountySQL, $this->dbConnection);
 
