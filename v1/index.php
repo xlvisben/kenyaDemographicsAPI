@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
@@ -30,8 +31,11 @@
   <div class="row">
     <nav class="col-sm-3 col-4 bg-dark" id="navigationBar">
       <ul class="nav nav-pills flex-column">
+        <div class="text-center">
+          <img src="assets/images/logo.png" style="filter:invert(1);" width="50px" height="50px" alt="Logo of Kenya Demographics API">
+        </div>
         <div class="text-white">
-          Kenya Places API  {{BETA}}
+          Kenya Demographics API  {{BETA}}
         </div>
         <li class="nav-item">
           <a class="nav-link active" href="#background">Background / Introduction</a>
@@ -64,6 +68,11 @@
           <a class="nav-link" href="#contact">Reach Out/Contact</a>
         </li>
       </ul>
+
+      <div class="text-center container text-white" style="position:sticky;top:95%;">
+        &copy; 2021 - <a href="mailto:hello@elvisben.me.ke?subject=Documentation%20On%20Kenya%20Demographics%20API">Elvis Ben</a>
+      </div>
+
     </nav>
     <div class="col-sm-9 col-8">
       <div id="background">
@@ -72,14 +81,14 @@
           Sometime back, I was required to develop an address system of sorts for a checkout processs. The locations were to be Kenyan, immediately I was of the idea I will google and get some API. Well no.
         </p>
         <p>
-          On the bright side the data was readily there and I got to use it but it bothered me that such wasn't readily available and one has to scour as many webpages as there are demographic units. <br>
+          On the bright side the data was readily there and I got to use it but it bothered me that it wasn't readily available in a format to be consumed almost immediately and one has to scour as many webpages as there are demographic units. <br>
         </p>
         <p>
           That led me to this side project, credits to <a href="https://github.com/njoguamos/kenya-demographics-units" target="_blank">this github repository</a>, <a href="https://geo.mycyber.org/kenya" target="_blank">this website</a> and Wikipedia entries of Kenya's demographic units for all the data
         </p>
 
         <p>
-          This is the documentation for the 'kenyaplacesapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties and it also includes former provinces where the demographic unit is located.
+          This is the documentation for the 'kenyademographicsapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties and it also includes former provinces where the demographic unit is located.
         </p>
       </div>
 
@@ -153,9 +162,11 @@
                 </td>
                 <td>
                   <code>
+                    <b>*An array containing single or multiple objects:</b>
                     [{},{}]
                   </code><br>
                   <code>
+                    <b>*An empty array:</b>
                     []
                   </code><br>
                   <code>null</code>
@@ -413,6 +424,7 @@
             <a href="https://fiverr.com/xlvisben" target="_blank">Fiverr</a>
             <a href="https://github.com/Xlvis" target="_blank">Github</a>
             <a href="https://elvisben.me.ke" target="_blank">Personal Website</a>
+            <a href="https://telegram.me/Xlvis" target="_blank">Telegram</a>
           </div>
         </div>
 
