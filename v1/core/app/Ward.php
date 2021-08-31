@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace app;
 
-
+use \mysqli;
 /*
 *
 ---------------------------------------------------------------
@@ -18,7 +18,7 @@ This file handles the WARD actions:
 class Ward extends DatabaseActions
 {
 
-  private \mysqli $dbConnection;
+  private mysqli $dbConnection;
 
   function __construct()
   {
