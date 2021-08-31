@@ -1,0 +1,10 @@
+#this is the root url to be used through out the file
+
+APP_URL = "https://abc/xyz/def"
+
+#these are the db credentials for the project
+
+DB_HOSTNAME = "abc"
+DB_NAME = "abc"
+DB_USERNAME = "abc"
+DB_PASSWORD = "abc"
