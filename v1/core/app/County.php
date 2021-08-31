@@ -19,7 +19,7 @@ This file handles the COUNTY actions:
 class County extends DatabaseActions
 {
 
-  private mysqli $dbConnection;
+  private $dbConnection;
 
   function __construct()
   {

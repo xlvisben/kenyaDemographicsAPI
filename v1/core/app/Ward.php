@@ -18,7 +18,7 @@ This file handles the WARD actions:
 class Ward extends DatabaseActions
 {
 
-  private mysqli $dbConnection;
+  private $dbConnection;
 
   function __construct()
   {

@@ -18,7 +18,7 @@ This file handles the PROVINCE actions:
 class Postalcode extends DatabaseActions
 {
 
-  private mysqli $dbConnection;
+  private $dbConnection;
 
   function __construct()
   {

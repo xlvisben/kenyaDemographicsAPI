@@ -18,7 +18,7 @@ This file handles the COUNTY actions:
 class Constituency extends DatabaseActions
 {
 
-  private mysqli $dbConnection;
+  private $dbConnection;
 
   function __construct()
   {

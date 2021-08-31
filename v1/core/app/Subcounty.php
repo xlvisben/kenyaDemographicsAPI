@@ -18,7 +18,7 @@ This file handles the SUBCOUNTY actions:
 class Subcounty extends DatabaseActions
 {
 
-  private mysqli $dbConnection;
+  private $dbConnection;
 
   function __construct()
   {
