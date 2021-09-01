@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
 
     switch ($getPostalcodes['response']) {
       case '200':
-
         $dataArray = array(
           'status_code' => 200,
           'status_message_short' => 'Success',

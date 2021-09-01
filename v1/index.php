@@ -55,8 +55,8 @@
             <a class="dropdown-item" href="#county">County</a>
             <a class="dropdown-item" href="#subcounties">Sub-counties</a>
             <a class="dropdown-item" href="#subcounty">Sub-county</a>
-            <a class="dropdown-item" href="#postalcode">Postal Code</a>
             <a class="dropdown-item" href="#postalcodes">Postal Codes</a>
+            <a class="dropdown-item" href="#postalcode">Postal Code</a>
             <a class="dropdown-item" href="#province">Province</a>
             <a class="dropdown-item" href="#provinces">Provinces</a>
             <a class="dropdown-item" href="#ward">Ward</a>
@@ -69,12 +69,9 @@
         </li>
       </ul>
 
-      <div class="text-center container text-white" style="position:sticky;top:95%;">
-        &copy; 2021 - <a href="mailto:hello@elvisben.me.ke?subject=Documentation%20On%20Kenya%20Demographics%20API">Elvis Ben</a>
-      </div>
-
     </nav>
     <div class="col-sm-9 col-8">
+
       <div id="background">
         <h1>Background</h1>
         <p>
@@ -88,9 +85,25 @@
         </p>
 
         <p>
-          This is the documentation for the 'kenyademographicsapi'. Get the demographic units of Kenya as of the 2010 constitutional change to counties and it also includes former provinces where the demographic unit is located.
+          This is the documentation for the 'kenyademographicsapi'. Get the demographic units of Kenya as of the 2010 constitution.<br>
+          The demographic units included are:
+          <ul>
+            <li>Constituencies</li>
+            <li>Counties</li>
+            <li>Subounties</li>
+            <li>Former provinces - for the case of counties</li>
+            <li>Wards</li>
+            <li>Postal Codes</li>
+          </ul>
+          There are additional information in other separate fields when a single demographic
+          unit is queried e.g for counties there is also former province information.<br>
+
+          Get to know the general nature of responses below...
+
         </p>
       </div>
+
+      <hr>
 
       <div id="responses">
         <h2>Responses</h2>
@@ -98,16 +111,19 @@
           All responses are in <code>JSON</code> and are in the following structure:
           <p>
             <code>
-              status_code: 000,<br>
-              status_message_short: 'xxxxxxxxx',<br>
-              status_message_description: 'xxxxxxxxxxxxxxxxxxxxx',<br>
-              data: []
+              <ul style="list-style-type:none">
+                <li>status_code: 000,</li>
+                <li>status_message_short: 'xxxxxxxxx',</li>
+                <li>status_code: 000,</li>
+                <li>status_message_description: 'xxxxxxxxxxxxxxxxxxxxx',</li>
+                <li>data: [],</li>
+              </ul>
+
             </code>
           </p>
-
           <p>
             <b>
-              The <code>status code</code> key in the JSON response bear the same meaning as normal HTTP status codes <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank">read more here</a>
+              The <code>status_code</code> key in the JSON response bear the same meaning as normal HTTP status codes <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank">read more here</a>
             </b>
           </p>
 
@@ -178,6 +194,8 @@
         </p>
       </div>
 
+      <hr>
+
       <div id="constituencies">
         <h2>Constituencies</h2>
         <p>
@@ -191,29 +209,37 @@
         </p>
         <p>
           Apart from the constituency code and constituency name, additional data provided are:<br>
-          <code>County Code</code><br>
-          <code>County Name</code><br>
-          <code>County's Capital City</code><br>
-          <code>Former Province Name</code><br>
-          <code>Former Province Code</code>
+          <code>
+            <ul style="list-style-type:none">
+              <li>County Code</li>
+              <li>County Name</li>
+              <li>County's Capital City</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
         </p>
         <p>
           The format for a single entry of data is an object with a structure as below:<br>
           <code>
-            {<br>
-              "constituency_code": "0",<br>
-              "constituency_name": "Xyz",<br>
-              "county_code": "0",<br>
-              "county_name": "Abc",<br>
-              "capital_city": "Abc",<br>
-              "former_province_name": "Def",<br>
-              "former_province_code": "0.0"<br>
+            {
+              <ul style="list-style-type:none">
+                <li>"constituency_code": "0",</li>
+                <li>"constituency_name": "Xyz",</li>
+                <li>"county_code": "0",</li>
+                <li>"county_name": "Abc",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>""former_province_code": "0.0"</li>
+              </ul>
             }
           </code>
         </p>
 
-        <p>To query the API for a specific constituency, get to read below</p>
+        <p>To query the API for a specific constituency, get to read below..</p>
       </div>
+
+      <hr>
 
       <div id="constituency">
         <h2>Constituencies</h2>
@@ -228,29 +254,39 @@
         </p>
         <p>
           Apart from the constituency code and constituency name, additional data provided are:<br>
-          <code>County Code</code><br>
-          <code>County Name</code><br>
-          <code>County's Capital City</code><br>
-          <code>Former Province Name</code><br>
-          <code>Former Province Code</code>
+
+          <code>
+            <ul style="list-style-type:none">
+              <li>County Code</li>
+              <li>County Name</li>
+              <li>County's Capital City</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
         </p>
         <p>
           The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
           <code>
-            {<br>
-              "constituency_code": "0",<br>
-              "constituency_name": "Xyz",<br>
-              "county_code": "0",<br>
-              "county_name": "Abc",<br>
-              "capital_city": "Abc",<br>
-              "former_province_name": "Def",<br>
-              "former_province_code": "0.0"<br>
+            {
+              <ul style="list-style-type:none">
+                <li>"constituency_code": "0",</li>
+                <li>"constituency_name": "Xyz",</li>
+                <li>"county_code": "0",</li>
+                <li>"county_name": "Abc",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>""former_province_code": "0.0"</li>
+              </ul>
             }
           </code>
         </p>
 
         <p>To query the API for a specific county, get to read below</p>
       </div>
+
+      <hr>
 
       <div id="counties">
         <h2>Counties</h2>
@@ -265,25 +301,34 @@
         </p>
         <p>
           Apart from the county code and county name, additional data provided are:<br>
-          <code>County's Capital City</code><br>
-          <code>Former Province Name</code><br>
-          <code>Former Province Code</code>
+          <code>
+            <ul style="list-style-type:none">
+              <li>County's Capital City</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
         </p>
         <p>
           The format for a single entry of data is an object with a structure as below:<br>
           <code>
-            {<br>
-              "county_code": "0",<br>
-              "county_name": "Xyz",<br>
-              "capital_city": "Abc",<br>
-              "former_province_name": "Def",<br>
-              "former_province_code": "0.0"<br>
+            {
+              <ul style="list-style-type:none">
+                <li>"county_code": "0",</li>
+                <li>"county_name": "Xyz",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
             }
           </code>
         </p>
 
-        <p>To query the API for a specific county, get to read below</p>
+        <p>To query the API for a specific county, get to read below...</p>
       </div>
+
+      <hr>
 
       <div id="county">
         <h2>County</h2>
@@ -294,28 +339,38 @@
           Supported Methods: <code>GET</code>
         </p>
         <p>
-          This endpoint fetches a specific county. This requires an ID to be passed in the URL in the <code>{id}</code> section. The ID to be passed is the county code which is unique to all constituencies.
+          This endpoint fetches a specific county. This requires an ID to be passed in the URL in the <code>{id}</code> section. The ID to be passed is the county code which is unique to all counties.
         </p>
         <p>
           Apart from the county code and county name, additional data provided are:<br>
-          <code>Former Province Name</code><br>
-          <code>Former Province Code</code>
+          <code>
+            <ul style="list-style-type:none">
+              <li>County's Capital City</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
         </p>
         <p>
           The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
           <code>
-            {<br>
-              "county_code": "0",<br>
-              "county_name": "Abc",<br>
-              "capital_city": "Abc",<br>
-              "former_province_name": "Def",<br>
-              "former_province_code": "0.0"<br>
+            {
+              <ul style="list-style-type:none">
+                <li>"county_code": "0",</li>
+                <li>"county_name": "Abc",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
             }
           </code>
         </p>
 
-        <p>To query the API for subcounties, get to read below</p>
+        <p>To query the API for subcounties, get to read below...</p>
       </div>
+
+      <hr>
 
       <div id="subcounties">
         <h2>Sub Counties</h2>
@@ -330,69 +385,312 @@
         </p>
         <p>
           Apart from the subcounty code and subcounty name, additional data provided are:<br>
-          <code>County's Name</code><br>
-          <code>County's Capital City</code><br>
-          <code>Former Province Name</code><br>
-          <code>Former Province Code</code>
+          <code>
+            <ul style="list-style-type:none">
+              <li>County's Name</li>
+              <li>County's Capital City</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
         </p>
         <p>
           The format for a single entry of data is an object with a structure as below:<br>
           <code>
-            {<br>
-              "subcounty_code": "0",<br>
-              "subcounty_name": "Xyz",<br>
-              "county_name": "Xyz",<br>
-              "capital_city": "Abc",<br>
-              "former_province_name": "Def",<br>
-              "former_province_code": "0.0"<br>
+            {
+              <ul style="list-style-type:none">
+                <li>"subcounty_code": "0",</li>
+                <li>"subcounty_name": "Xyz",</li>
+                <li>"county_name": "Xyz",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
             }
           </code>
         </p>
 
-        <p>To query the API for a specific subcounty, get to read below</p>
+        <p>To query the API for a specific subcounty, get to read below...</p>
       </div>
+
+      <hr>
 
       <div id="subcounty">
-        <h2>Sub County</h2>
+        <h2>Subcounty</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/subcounty/{id}</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches a specific subcounty. This requires an ID to be passed in the URL in the <code>{id}</code> section. The ID to be passed is the sub county code which is unique to all subcounties.
+        </p>
+        <p>
+          Apart from the subcounty code and subcounty name, additional data provided are:<br>
+          <code>
+            <ul style="list-style-type:none">
+              <li>County's Capital City</li>
+              <li>County's Name</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
+        </p>
+        <p>
+          The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
+          <code>
+            {
+              <ul style="list-style-type:none">
+                <li>"subcounty_code": "0",</li>
+                <li>"subcounty_name": "Abc",</li>
+                <li>"county_name": "Abc",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for postal codes, get to read below...</p>
       </div>
 
-      <div id="postalcode">
-        <h2>Postal Code</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-      </div>
+      <hr>
 
       <div id="postalcodes">
         <h2>Postal Codes</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/postalcodes</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches all subcounties present.
+        </p>
+        <p>
+          Apart from the postal code and office name, additional data provided are:<br>
+          <code>
+            <ul style="list-style-type:none">
+              <li>County Name</li>
+            </ul>
+          </code>
+        </p>
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+            {
+              <ul style="list-style-type:none">
+                <li>"postal_code": "00000",</li>
+                <li>"office": "Xyz",</li>
+                <li>"county_name": "Xyz",</li>
+              </ul>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for a specific postal code, get to read below...</p>
       </div>
+
+      <hr>
+
+      <div id="postalcode">
+        <h2>Postal Code</h2>
+        <p>
+          <code>URL: /v1/postalcode/{postalcode}</code>
+        </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches a specific postal code present through the <code>{postalcode}</code> provided in the URL.
+        </p>
+
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+            {
+              <ul style="list-style-type:none">
+                <li>"postal_code": "00000",</li>
+                <li>"office": "Xyz"</li>
+              </ul>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for a former province, get to read below...</p>
+      </div>
+
+      <hr>
 
       <div id="province">
         <h2>Province</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/province/{province_id}</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches a specific province. This requires a province code to be supplied in the URL in the <code>{province_id}</code> section. The province code which is unique to all former provinces.
+        </p>
+        <p>
+          Apart from the county code and county name, additional data provided are:<br>
+          <code>
+            <ul style="list-style-type:none">
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
+        </p>
+        <p>
+          The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
+          <code>
+            {
+              <ul style="list-style-type:none">
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for former provinces, get to read below...</p>
       </div>
+
+      <hr>
+
+      <div id="provinces">
+        <h2>Provinces</h2>
+        <p>
+          <code>URL: /v1/provinces</code>
+        </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches all former provinces present.
+        </p>
+
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+            {
+              <ul style="list-style-type:none">
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for a specific ward, get to read below...</p>
+      </div>
+
+      <hr>
 
       <div id="ward">
         <h2>Ward</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/ward/{id}</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches a specific ward. This requires an ID to be passed in the URL in the <code>{id}</code> section. The ID to be passed is the ward code which is unique to all wards.
+        </p>
+        <p>
+          Apart from the ward code and ward name, additional data provided are:<br>
+          <code>
+            <ul style="list-style-type:none">
+              <li>Constituency Code</li>
+              <li>Constituency Name</li>
+              <li>County's Code</li>
+              <li>County's Capital City</li>
+              <li>County's Name</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
+        </p>
+        <p>
+          The format for the data is a single object in the <code>data</code> key with a structure as below:<br>
+          <code>
+            {
+              <ul style="list-style-type:none">
+                <li>"ward_code": "0",</li>
+                <li>"ward_name": "Abc",</li>
+                <li>"constituency_code": "0",</li>
+                <li>"constituency_name": "0",</li>
+                <li>"county_code": "0",</li>
+                <li>"county_name": "Abc",</li>
+                <li>"capital_city": "Abc",</li>
+                <li>"former_province_name": "Def",</li>
+                <li>"former_province_code": "0.0"</li>
+              </ul>
+            }
+          </code>
+        </p>
+
+        <p>To query the API for wards, get to read below...</p>
       </div>
+
+      <hr>
 
       <div id="wards">
         <h2>Wards</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <code>URL: /v1/wards</code>
         </p>
+        <p>
+          Supported Methods: <code>GET</code>
+        </p>
+        <p>
+          This endpoint fetches all counties present.
+        </p>
+        <p>
+          Apart from the ward code and ward name, additional data provided are:<br>
+          <code>
+            <ul style="list-style-type:none">
+              <li>Constituency Code</li>
+              <li>Constituency Name</li>
+              <li>County's Code</li>
+              <li>County's Capital City</li>
+              <li>County's Name</li>
+              <li>Former Province Name</li>
+              <li>Former Province Code</li>
+            </ul>
+          </code>
+
+        </p>
+        <p>
+          The format for a single entry of data is an object with a structure as below:<br>
+          <code>
+              {
+                <ul style="list-style-type:none">
+                  <li>"ward_code": "0",</li>
+                  <li>"ward_name": "Abc",</li>
+                  <li>"constituency_code": "0",</li>
+                  <li>"constituency_name": "0",</li>
+                  <li>"county_code": "0",</li>
+                  <li>"county_name": "Abc",</li>
+                  <li>"capital_city": "Abc",</li>
+                  <li>"former_province_name": "Def",</li>
+                  <li>"former_province_code": "0.0"</li>
+                </ul>
+              }
+          </code>
+        </p>
+
+        <p>And those are the available endpoints, got something to share just scroll a little...</p>
       </div>
+
+      <hr>
 
       <div id="contact" class="pb-5" >
 
@@ -426,6 +724,10 @@
             <a href="https://elvisben.me.ke" target="_blank">Personal Website</a>
             <a href="https://telegram.me/Xlvis" target="_blank">Telegram</a>
           </div>
+        </div>
+
+        <div class="text-center container" style="position:sticky;top:95%;">
+          &copy; 2021 - <a href="mailto:hello@elvisben.me.ke?subject=Documentation%20On%20Kenya%20Demographics%20API">Elvis Ben</a>
         </div>
 
       </div>

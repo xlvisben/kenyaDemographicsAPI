@@ -24,7 +24,7 @@ RewriteRule ^ %1 [R=301,L]
 # disabling display of directories
 Options -Indexes
 # default error pages
-ErrorDocument 403 /v1/403.php
-ErrorDocument 404 /v1/404.php
-ErrorDocument 500 /v1/500.php
-ErrorDocument 503 /v1/503.php
+ErrorDocument 403 /kenyaplacesapi/v1/403.php
+ErrorDocument 404 /kenyaplacesapi/v1/404.php
+ErrorDocument 500 /kenyaplacesapi/v1/500.php
+ErrorDocument 503 /kenyaplacesapi/v1/503.php
