@@ -60,7 +60,7 @@ class Logger
 
     $contents .= $time ."\tIP Address:".$clientIP."\tClient User Agent:".$userAgent."\tScript running:".$scriptName."\tError Message:".$logMessage."\n";
 
-    file_put_contents(self::LOGFILESPATH.'error_log.txt', $contents);
+    file_put_contents($logFile, $contents);
   }
 
 }
