@@ -4,14 +4,69 @@
     <meta charset="utf-8">
     <title>Kenya Demographics API</title>
   </head>
+  <style media="screen">
+      body, html{
+          padding: 0;
+          margin: 0;
+          height: 100%;
+      }
+      main{
+        background: linear-gradient(0deg, #343a40, #171a1c);
+        width:100%;
+        max-width: 1500px;
+        text-align: center;
+        height: 100%;
+        max-height:800px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content-holder{
+        width: 50%;
+        height: 70%;
+        box-shadow: 0 0 10px 4px #171a1c;
+        border-radius: 10px;
+        padding: 10px 5px;
+      }
+      .content-card{
+        margin: 10px auto;
+        color: white;
+      }
+      .content-card p{
+        width: 80%;
+        margin: 10px auto;
+        padding: 10px 5px;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 4px #101314;
+      }
+      .content-card a{
+        color: #fff;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+      }
+  </style>
   <body>
 
-    You can choose from any of the following versions to go to the docs:
-    <ul>
-      <li>
-        <a href="v1">Version 1</a>
-      </li>
-    </ul>
+    <main>
+
+      <div class="content-holder">
+
+        <div class="image">
+          <img src="v1/assets/images/logo.png" style="filter:invert(1);" width="100px" height="100px" alt="Logo of Kenya Demographics API">
+        </div>
+        <div class="content-card">
+          You can choose from any of the following versions to go to the docs:
+          <p>
+            <a href="v1">Version 1</a>
+          </p>
+        </div>
+
+      </div>
+
+    </main>
+
 
   </body>
 </html>

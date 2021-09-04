@@ -17,7 +17,7 @@ This file handles the SUBCOUNTY actions:
 class Subcounty extends DatabaseActions
 {
 
-  private $dbConnection;
+  private $DBConnection;
 
   function __construct()
   {
@@ -36,7 +36,7 @@ class Subcounty extends DatabaseActions
 
      }else {
 
-       $this->dbConnection = $dbconnectionAttempt['data'];
+       $this->DBConnection = $dbconnectionAttempt['data'];
 
      }
 
@@ -47,18 +47,18 @@ class Subcounty extends DatabaseActions
 
     $getSubcountiesSQL = "SELECT subcounty_code, subcounty_name, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `sub_counties` INNER JOIN `counties` ON counties.county_code = sub_counties.county_code INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id";
 
-    return $this->selectSQLStatement($getSubcountiesSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getSubcountiesSQL, $this->DBConnection);
 
   }
 
   public function getSubcounty(string $ID)
   {
 
-    $ID = mysqli_real_escape_string($this->dbConnection, $ID);
+    $ID = mysqli_real_escape_string($this->DBConnection, $ID);
 
     $getSubcountySQL = "SELECT subcounty_code, subcounty_name, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `sub_counties` INNER JOIN `counties` ON counties.county_code = sub_counties.county_code INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE subcounty_code = '$ID'";
 
-    return $this->selectSQLStatement($getSubcountySQL, $this->dbConnection);
+    return $this->selectSQLStatement($getSubcountySQL, $this->DBConnection);
 
   }
 

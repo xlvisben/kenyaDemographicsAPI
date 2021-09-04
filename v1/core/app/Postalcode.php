@@ -17,7 +17,7 @@ This file handles the PROVINCE actions:
 class Postalcode extends DatabaseActions
 {
 
-  private $dbConnection;
+  private $DBConnection;
 
   function __construct()
   {
@@ -36,7 +36,7 @@ class Postalcode extends DatabaseActions
 
      }else {
 
-       $this->dbConnection = $dbconnectionAttempt['data'];
+       $this->DBConnection = $dbconnectionAttempt['data'];
 
      }
 
@@ -47,18 +47,18 @@ class Postalcode extends DatabaseActions
 
     $getPostalcodesSQL = "SELECT postal_code, office, county_name FROM `postal_codes` INNER JOIN `counties` ON counties.county_code = postal_codes.county_code";
 
-    return $this->selectSQLStatement($getPostalcodesSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getPostalcodesSQL, $this->DBConnection);
 
   }
 
   public function getPostalcode(string $ID)
   {
 
-    $ID = mysqli_real_escape_string($this->dbConnection, $ID);
+    $ID = mysqli_real_escape_string($this->DBConnection, $ID);
 
     $getPostalcodeSQL = "SELECT postal_code, office FROM `postal_codes` INNER JOIN `counties` ON counties.county_code = postal_codes.county_code WHERE postal_code = '$ID'";
 
-    return $this->selectSQLStatement($getPostalcodeSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getPostalcodeSQL, $this->DBConnection);
 
   }
 

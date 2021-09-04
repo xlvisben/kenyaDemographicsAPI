@@ -17,7 +17,7 @@ This file handles the PROVINCE actions:
 class Province extends DatabaseActions
 {
 
-  private $dbConnection;
+  private $DBConnection;
 
   function __construct()
   {
@@ -36,7 +36,7 @@ class Province extends DatabaseActions
 
      }else {
 
-       $this->dbConnection = $dbconnectionAttempt['data'];
+       $this->DBConnection = $dbconnectionAttempt['data'];
 
      }
 
@@ -47,18 +47,18 @@ class Province extends DatabaseActions
 
     $getProvincesSQL = "SELECT province_id, province_name FROM `former_provinces`";
 
-    return $this->selectSQLStatement($getProvincesSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getProvincesSQL, $this->DBConnection);
 
   }
 
   public function getProvince(string $ID)
   {
 
-    $ID = mysqli_real_escape_string($this->dbConnection, $ID);
+    $ID = mysqli_real_escape_string($this->DBConnection, $ID);
 
     $getProvinceSQL = "SELECT province_id, province_name FROM `former_provinces` WHERE province_id = '$ID'";
 
-    return $this->selectSQLStatement($getProvinceSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getProvinceSQL, $this->DBConnection);
 
   }
 

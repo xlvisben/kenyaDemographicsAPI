@@ -17,7 +17,7 @@ This file handles the WARD actions:
 class Ward extends DatabaseActions
 {
 
-  private $dbConnection;
+  private $DBConnection;
 
   function __construct()
   {
@@ -36,7 +36,7 @@ class Ward extends DatabaseActions
 
      }else {
 
-       $this->dbConnection = $dbconnectionAttempt['data'];
+       $this->DBConnection = $dbconnectionAttempt['data'];
 
      }
 
@@ -47,18 +47,18 @@ class Ward extends DatabaseActions
 
     $getSubcountiesSQL = "SELECT ward_code, ward_name, constituencies.constituency_code, constituency_name, constituencies.county_code, county_name, capital_city, province_name as former_province_name, province_id as former_province_code FROM `wards` INNER JOIN `constituencies` ON wards.constituency_code = constituencies.constituency_code INNER JOIN `counties` ON constituencies.county_code = counties.county_code INNER JOIN `former_provinces` ON counties.former_province_entry_id = former_provinces.entry_id";
 
-    return $this->selectSQLStatement($getSubcountiesSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getSubcountiesSQL, $this->DBConnection);
 
   }
 
   public function getWard(string $ID)
   {
 
-    $ID = mysqli_real_escape_string($this->dbConnection, $ID);
+    $ID = mysqli_real_escape_string($this->DBConnection, $ID);
 
     $getWardSQL = "SELECT ward_code, ward_name, constituencies.constituency_code, constituency_name, constituencies.county_code, county_name, capital_city, province_name as former_province_name, province_id as former_province_code FROM `wards` INNER JOIN `constituencies` ON wards.constituency_code = constituencies.constituency_code INNER JOIN `counties` ON constituencies.county_code = counties.county_code INNER JOIN `former_provinces` ON counties.former_province_entry_id = former_provinces.entry_id WHERE ward_code = '$ID'";
 
-    return $this->selectSQLStatement($getWardSQL, $this->dbConnection);
+    return $this->selectSQLStatement($getWardSQL, $this->DBConnection);
 
   }
 
