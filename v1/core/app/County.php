@@ -1,4 +1,4 @@
-$DBConnection<?php
+<?php
 declare(strict_types=1);
 
 namespace app;
@@ -36,7 +36,7 @@ class County extends DatabaseActions
 
      }else {
 
-       $this->$DBConnection = $dbconnectionAttempt['data'];
+       $this->DBConnection = $dbconnectionAttempt['data'];
 
      }
 
@@ -47,18 +47,18 @@ class County extends DatabaseActions
 
     $getCountiesSQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id";
 
-    return $this->selectSQLStatement($getCountiesSQL, $this->$DBConnection);
+    return $this->selectSQLStatement($getCountiesSQL, $this->DBConnection);
 
   }
 
   public function getCounty(string $ID)
   {
 
-    $ID = mysqli_real_escape_string($this->$DBConnection, $ID);
+    $ID = mysqli_real_escape_string($this->DBConnection, $ID);
 
     $getCountySQL = "SELECT county_code, county_name, capital_city, province_name AS former_province_name, province_id as former_province_code FROM `counties` INNER JOIN `former_provinces` ON former_provinces.entry_id = counties.former_province_entry_id WHERE county_code = '$ID'";
 
-    return $this->selectSQLStatement($getCountySQL, $this->$DBConnection);
+    return $this->selectSQLStatement($getCountySQL, $this->DBConnection);
 
   }
 
