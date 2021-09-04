@@ -19,7 +19,7 @@ require_once __DIR__.'/core/composer/vendor/autoload.php';
 use app\Postalcode;
 
 if ($_SERVER['REQUEST_METHOD'] != 'GET') {
-
+  header("HTTP/1.1 405 Method Not Allowed");
   $dataArray = array(
     'status_code' => 405,
     'status_message_short' => 'Method not allowed',
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
         break;
 
         case '204':
-
+          header("HTTP/1.1 204 No Content");
           $dataArray = array(
             'status_code' => 204,
             'status_message_short' => 'No content',
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
           break;
 
       default:
-
+        header("HTTP/1.1 500 Internal Server Error");
         $dataArray = array(
           'status_code' => 500,
           'status_message_short' => 'Internal error',
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
     }
 
   } catch (\Exception $error) {
-
+    header("HTTP/1.1 500 Internal Server Error");
     $dataArray = array(
       'status_code' => 500,
       'status_message_short' => 'Internal error',

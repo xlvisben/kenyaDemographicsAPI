@@ -20,7 +20,7 @@ use app\Ward;
 
 
 if ($_SERVER['REQUEST_METHOD'] != 'GET') {
-
+  header("HTTP/1.1 405 Method Not Allowed");
   $dataArray = array(
     'status_code' => 405,
     'status_message_short' => 'Method not allowed',
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
 } else {
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-
+  header("HTTP/1.1 400 Bad Request");
   $dataArray = array(
     'status_code' => 400,
     'status_message_short' => 'Bad request',
@@ -60,7 +60,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
         break;
 
         case '204':
-
+          header("HTTP/1.1 204 No Content");
           $dataArray = array(
             'status_code' => 204,
             'status_message_short' => 'No content',
@@ -71,7 +71,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
           break;
 
       default:
-
+        header("HTTP/1.1 500 Internal Server Error");
         $dataArray = array(
           'status_code' => 500,
           'status_message_short' => 'Internal error',
@@ -83,7 +83,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
     }
 
   } catch (\Exception $error) {
-
+    header("HTTP/1.1 500 Internal Server Error");
     $dataArray = array(
       'status_code' => 500,
       'status_message_short' => 'Internal error',
