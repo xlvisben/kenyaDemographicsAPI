@@ -1,6 +1,9 @@
 .navigation-mobile{
   display: none;
 }
+.navigation-desktop{
+  display: block;
+}
 @media only screen and (max-width: 480px) {
   #background, #responses, #constituencies, #constituency, #counties, #county, #subcounties, #subcounty, #postalcodes, #postalcode, #province, #provinces, #ward, #wards{
     padding-top: 55px;
