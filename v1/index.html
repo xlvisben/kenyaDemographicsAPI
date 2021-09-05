@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/custom.min.css">
   <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
+  <script defer src="assets/js/jquery.min.js"></script>
+  <script defer src="assets/js/popper.min.js"></script>
+  <script defer src="assets/js/bootstrap.min.js"></script>
   <style>
     html, body{
       scroll-behavior: smooth;
@@ -29,48 +30,150 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-3 col-4 bg-dark" id="navigationBar">
-      <ul class="nav nav-pills flex-column">
-        <div class="text-center">
-          <img src="assets/images/logo.png" style="filter:invert(1);" width="50px" height="50px" alt="Logo of Kenya Demographics API">
-        </div>
-        <div class="text-white">
-          Kenya Demographics API  {{BETA}}
-        </div>
-        <li class="nav-item">
-          <a class="nav-link active" href="#background">Background / Introduction</a>
-        </li>
+    <div class="navigation-mobile">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="navigationBar">
+        <ul class="navbar-nav" style="flex-direction:row;width: 100%;justify-content: inherit;">
+          <li class="nav-item">
+            <a class="nav-link active" href="#background">Background</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#responses">Responses</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#responses">Responses</a>
+          </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
 
-          <div id="endpointsdropdown" class="collapse">
-            <a class="dropdown-item" href="#constituencies">Constituencies</a>
-            <a class="dropdown-item" href="#constituency">Constituency</a>
-            <a class="dropdown-item" href="#counties">Counties</a>
-            <a class="dropdown-item" href="#county">County</a>
-            <a class="dropdown-item" href="#subcounties">Sub-counties</a>
-            <a class="dropdown-item" href="#subcounty">Sub-county</a>
-            <a class="dropdown-item" href="#postalcodes">Postal Codes</a>
-            <a class="dropdown-item" href="#postalcode">Postal Code</a>
-            <a class="dropdown-item" href="#province">Province</a>
-            <a class="dropdown-item" href="#provinces">Provinces</a>
-            <a class="dropdown-item" href="#ward">Ward</a>
-            <a class="dropdown-item" href="#wards">Wards</a>
+            <div id="endpointsdropdown" class="collapse" style="width: 80px;">
+
+              <a class="dropdown-item" href="#constituencies">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Constituencies
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#constituency">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Constituency
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#counties">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Counties
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#county">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  County
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#subcounties">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Sub-counties
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#subcounty">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Sub-county
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#postalcodes">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Postal Codes
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#postalcode">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Postal Code
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#province">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Province
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#provinces">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Provinces
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#ward">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Ward
+                </span>
+              </a>
+
+              <a class="dropdown-item" href="#wards">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Wards
+                </span>
+              </a>
+              
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+
+    <div class="navigation-desktop">
+      <nav class="col-sm-3 col-4 bg-dark" id="navigationBar">
+        <ul class="nav nav-pills flex-column">
+          <div class="text-center">
+            <img src="assets/images/logo.png" style="filter:invert(1);" width="50px" height="50px" alt="Logo of Kenya Demographics API">
           </div>
-        </li>
+          <div class="text-white">
+            Kenya Demographics API  {{BETA}}
+          </div>
+          <li class="nav-item">
+            <a class="nav-link active" href="#background">Background / Introduction</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Reach Out/Contact</a>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#responses">Responses</a>
+          </li>
 
-    </nav>
-    <div class="col-sm-9 col-8">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
+
+            <div id="endpointsdropdown" class="collapse">
+              <a class="dropdown-item" href="#constituencies">Constituencies</a>
+              <a class="dropdown-item" href="#constituency">Constituency</a>
+              <a class="dropdown-item" href="#counties">Counties</a>
+              <a class="dropdown-item" href="#county">County</a>
+              <a class="dropdown-item" href="#subcounties">Sub-counties</a>
+              <a class="dropdown-item" href="#subcounty">Sub-county</a>
+              <a class="dropdown-item" href="#postalcodes">Postal Codes</a>
+              <a class="dropdown-item" href="#postalcode">Postal Code</a>
+              <a class="dropdown-item" href="#province">Province</a>
+              <a class="dropdown-item" href="#provinces">Provinces</a>
+              <a class="dropdown-item" href="#ward">Ward</a>
+              <a class="dropdown-item" href="#wards">Wards</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Reach Out/Contact</a>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+
+    <div class="col-sm-9 col-8" id="content">
 
       <div id="background">
         <h1>Background</h1>
