@@ -8,15 +8,13 @@ html{
 .navigation-desktop{
   display: block;
 }
-.table{
-  display: none;
-}
+
 @media only screen and (max-width: 480px) {
   #responses, #constituencies, #constituency, #counties, #county, #subcounties, #subcounty, #postalcodes, #postalcode, #province, #provinces, #ward, #wards{
     padding-top: 55px;
   }
   #background {
-    padding-top: 1vh;
+    padding-top: 3vh;
   }
 
   .row{
@@ -54,13 +52,13 @@ html{
           display: flex;
           width: 25px;
           height: 21px;
-          transition: .25s;
           
           &.active{
             animation: .25s spin ease-in-out;
 
             span:nth-child(1){
-              display: none;
+              height: 0;
+              transition: .25s;
             }
           }
 
@@ -80,6 +78,7 @@ html{
           span:nth-child(1){
             transform: rotate(90deg) translateY(0%);
             top: 50%;
+            transition: .25s;
           }
           span:nth-child(2){
             transform: rotate(0deg) translateY(-50%);
