@@ -10,6 +10,7 @@ html{
 }
 
 @media only screen and (max-width: 480px) {
+
   #responses, #constituencies, #constituency, #counties, #county, #subcounties, #subcounty, #postalcodes, #postalcode, #province, #provinces, #ward, #wards{
     padding-top: 55px;
   }
@@ -27,8 +28,8 @@ html{
     nav{
       display: flex;
       align-items: baseline;
-      padding-top: 1em;
-      padding-bottom: 1em;
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
       gap: 1em;
       left: 0;
       width: 100%;
