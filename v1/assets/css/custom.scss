@@ -1,15 +1,124 @@
+html{
+  width: 100vw;
+  // overflow-x: hidden;
+}
 .navigation-mobile{
   display: none;
 }
 .navigation-desktop{
   display: block;
 }
+.table{
+  display: none;
+}
 @media only screen and (max-width: 480px) {
-  #background, #responses, #constituencies, #constituency, #counties, #county, #subcounties, #subcounty, #postalcodes, #postalcode, #province, #provinces, #ward, #wards{
+  #responses, #constituencies, #constituency, #counties, #county, #subcounties, #subcounty, #postalcodes, #postalcode, #province, #provinces, #ward, #wards{
     padding-top: 55px;
   }
+  #background {
+    padding-top: 1vh;
+  }
+
+  .row{
+    display: inline-block;
+  }
+
   .navigation-mobile{
     display: block;
+
+    nav{
+      display: flex;
+      align-items: baseline;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      gap: 1em;
+      left: 0;
+      width: 100%;
+
+      .nav-title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        p{
+          margin: 0;
+          color: #f4f4f4;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+
+        .hamburger-menu{
+          position: relative;
+          display: flex;
+          width: 25px;
+          height: 21px;
+          transition: .25s;
+          
+          &.active{
+            animation: .25s spin ease-in-out;
+
+            span:nth-child(1){
+              display: none;
+            }
+          }
+
+          @keyframes spin{
+            to{
+              transform: rotate(360deg);
+            }
+          }
+
+          span{
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+          }
+
+          span:nth-child(1){
+            transform: rotate(90deg) translateY(0%);
+            top: 50%;
+          }
+          span:nth-child(2){
+            transform: rotate(0deg) translateY(-50%);
+            top: 50%;
+
+          }
+        }
+      }
+      
+      .navbar-nav{
+        position: relative;
+        display: none;
+        overflow-y: hidden;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        transition: .25s;
+        
+        &.active{
+          display: flex;
+        }
+
+        .nav-item{
+          position: relative;
+          width: 100%;
+
+          .nav-link{
+            padding: .5em .5em;
+          }
+
+          &.dropdown{
+
+            .dropdown-item{
+              color: white;
+            }
+          }
+        }
+      }
+    }
   }
   .navigation-desktop{
     display: none;

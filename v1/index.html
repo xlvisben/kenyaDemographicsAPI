@@ -32,7 +32,14 @@
   <div class="row">
     <div class="navigation-mobile">
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="navigationBar">
-        <ul class="navbar-nav" style="flex-direction:row;width: 100%;justify-content: inherit;">
+        <div class="nav-title">
+          <p>KenyaPlacesApi</p>
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link active" href="#background">Background</a>
           </li>
@@ -44,7 +51,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
 
-            <div id="endpointsdropdown" class="collapse" style="width: 80px;">
+            <div id="endpointsdropdown" class="collapse">
 
               <a class="dropdown-item" href="#constituencies">
                 <span data-toggle="collapse" data-target="#endpointsdropdown">
@@ -840,5 +847,22 @@
 </div>
 
 </body>
+<script>
+  let dropdownItems = Array.from(document.querySelectorAll('.dropdown-item'));
+  let navLinks = Array.from(document.querySelectorAll('.nav-link'))
+                      .filter(btn => !btn.classList.contains('dropdown-toggle') ); 
+  const navigationButtons = [...dropdownItems, ...navLinks];
+  const navItems = document.querySelector('.navbar-nav');
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
 
+  const toggleNav = () => {
+    navItems.classList.toggle('active');
+    hamburgerMenu.classList.toggle('active');
+  }
+
+  hamburgerMenu.addEventListener('click', toggleNav);
+  navigationButtons.forEach(btn => {
+    btn.addEventListener('click', toggleNav);
+  })
+</script>
 </html>
