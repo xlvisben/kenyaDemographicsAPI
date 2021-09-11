@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,6 +184,25 @@
     </div>
 
     <div class="col-sm-9 col-8" id="content">
+      <?php
+        if (isset($_SESSION['mail_succeed'])) {
+      ?>
+        <div class="alert alert-success alert-dismissible">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Success!</strong> Gotten the email! Will reply soonest possible.
+        </div>
+      <?php
+      unset($_SESSION['mail_succeed']);
+      }else if(isset($_SESSION['mail_fail'])) {
+      ?>
+      <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Mail sending failed please retry</strong>
+      </div>
+      <?php
+      unset($_SESSION['mail_fail']);
+      }
+      ?>
 
       <div id="background">
         <h1>Background</h1>
@@ -806,28 +828,30 @@
 
         <h2>Reach Out</h2>
         <p>Got some awesome suggestions or a comment? Fill in below to get to me with your message!!</p>
-        <form class="col-sm-7 m-auto">
+        <form action="sendemail" class="col-sm-7 m-auto" method="post">
 
           <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Fill in your name" name="fullname">
+            <label for="name">Name*:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Fill in your name" name="fullname">
           </div>
 
           <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <label for="email">Email*:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" name="email">
           </div>
 
           <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea name="message" id="message" class="form-control" placeholder="Your Message"></textarea>
+            <label for="message">Message*:</label>
+            <textarea name="message" id="message" class="form-control" name="message" placeholder="Your Message"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary form-control">Submit</button>
         </form>
+        <hr>
 
         <div class="m-auto text-center">
-          <p>You can also get me through the below avenues</p>
+          Credits to <a href="https://github.com/MusikuAustin" target="_blank">Austin</a> for the front-end design<br>
+          You can also get me through the below avenues
           <div class="col-sm-9 d-flex m-auto justify-content-around">
             <a href="https://fiverr.com/xlvisben" target="_blank">Fiverr</a>
             <a href="https://github.com/xlvisben" target="_blank">Github</a>
@@ -850,7 +874,7 @@
 <script>
   let dropdownItems = Array.from(document.querySelectorAll('.dropdown-item'));
   let navLinks = Array.from(document.querySelectorAll('.nav-link'))
-                      .filter(btn => !btn.classList.contains('dropdown-toggle') ); 
+                      .filter(btn => !btn.classList.contains('dropdown-toggle') );
   const navigationButtons = [...dropdownItems, ...navLinks];
   const navItems = document.querySelector('.navbar-nav');
   const hamburgerMenu = document.querySelector('.hamburger-menu');
