@@ -146,7 +146,7 @@ session_start();
             <img src="assets/images/logo.png" style="filter:invert(1);" width="50px" height="50px" alt="Logo of Kenya Demographics API">
           </div>
           <div class="text-white">
-            Kenya Demographics API  {{BETA}}
+            Kenya Demographics API
           </div>
           <li class="nav-item">
             <a class="nav-link active" href="#background">Background / Introduction</a>
