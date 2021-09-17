@@ -54,4 +54,4 @@ I have a few features that I will roll out in the next version but if you have a
 
 
 ##### Get a styled and in depth view of the documentation
-[create a new issue](https://api.elvisben.me.ke/demographics/v1/)
+[Go to documentation website](https://api.elvisben.me.ke/demographics/v1/)
