@@ -50,7 +50,7 @@ https://api.elvisben.me.ke/demographics/v1/counties and response will have the f
 | `GET` | `/v1/wards` | Gets all the wards present. |
 
 ## Future plans  
-I have a few features that I will roll out in the next version but if you have any suggestions about what more can be incorporated, or if you find a bug or you need any assistance, feel free to contact me directly via [email](mailto:hello@elvisben.me.ke) or [create a new issue](https://github.com/xlvisben/kenyaDemographicsAPI/issues) on the GitHub repository.
+I have a few features in mind that I will roll out in the next version but if you have any suggestions about what more can be incorporated, or if you find a bug or you need any assistance, feel free to contact me directly via [email](mailto:hello@elvisben.me.ke) or [create a new issue](https://github.com/xlvisben/kenyaDemographicsAPI/issues) on the GitHub repository.
 
 
 ##### Get a styled and in depth view of the documentation

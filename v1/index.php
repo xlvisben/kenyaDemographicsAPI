@@ -27,6 +27,9 @@ session_start();
     div.col-8 div {
       height: auto;
     }
+    #endpointsdropdown > a > span:hover{
+      color: #000;
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target="#navigationBar" data-offset="20">
@@ -149,34 +152,82 @@ session_start();
             Kenya Demographics API
           </div>
           <li class="nav-item">
-            <a class="nav-link active" href="#background">Background / Introduction</a>
+            <a class="nav-link active text-white" href="#background">Background / Introduction</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#responses">Responses</a>
+            <a class="nav-link text-white" href="#responses">Responses</a>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
+            <a class="nav-link dropdown-toggle text-white" data-toggle="collapse" data-target="#endpointsdropdown" href="#">Endpoints</a>
 
             <div id="endpointsdropdown" class="collapse">
-              <a class="dropdown-item" href="#constituencies">Constituencies</a>
-              <a class="dropdown-item" href="#constituency">Constituency</a>
-              <a class="dropdown-item" href="#counties">Counties</a>
-              <a class="dropdown-item" href="#county">County</a>
-              <a class="dropdown-item" href="#subcounties">Sub-counties</a>
-              <a class="dropdown-item" href="#subcounty">Sub-county</a>
-              <a class="dropdown-item" href="#postalcodes">Postal Codes</a>
-              <a class="dropdown-item" href="#postalcode">Postal Code</a>
-              <a class="dropdown-item" href="#province">Province</a>
-              <a class="dropdown-item" href="#provinces">Provinces</a>
-              <a class="dropdown-item" href="#ward">Ward</a>
-              <a class="dropdown-item" href="#wards">Wards</a>
+              <a class="dropdown-item text-white" href="#constituencies">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Constituencies
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#constituency">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Constituency
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#counties">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Counties
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#county">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  County
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#subcounties">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Sub-counties
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#subcounty">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Sub-county
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#postalcodes">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Postal Codes
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#postalcode">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Postal Code
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#province">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Province
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#provinces">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Provinces
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#ward">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Ward
+                </span>
+              </a>
+              <a class="dropdown-item text-white" href="#wards">
+                <span data-toggle="collapse" data-target="#endpointsdropdown">
+                  Wards
+                </span>
+              </a>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Reach Out/Contact</a>
+            <a class="nav-link text-white" href="#contact">Reach Out/Contact</a>
           </li>
         </ul>
 
@@ -217,7 +268,7 @@ session_start();
         </p>
 
         <p>
-          This is the documentation for the 'kenyademographicsapi'. Get the demographic units of Kenya as of the 2010 constitution.<br>
+          This is the documentation for the 'kenyademographicsapi'. Get the demographic units of Kenya as of the 2010 constitution. The github link to it is <a href="https://github.com/xlvisben/kenyaDemographicsAPI" target="_blank">here</a><br>
           The demographic units included are:
           <ul>
             <li>Constituencies</li>
