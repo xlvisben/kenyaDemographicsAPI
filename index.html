@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <title>Kenya Demographics API</title>
     <link rel="icon" type="image/png" href="v1/assets/images/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   </head>
   <style media="screen">
       body, html{
           padding: 0;
           margin: 0;
           height: 100%;
+          font-family: monospace;
       }
       main{
         background: linear-gradient(0deg, #343a40, #171a1c);
@@ -54,6 +56,15 @@
       }
       footer, footer a{
         color: white;
+      }
+
+      @media only screen and (max-width: 1050px) {
+        .content-holder{
+          width:80%;
+        }
+        main{
+          max-height:100%;
+        }
       }
   </style>
   <body>
